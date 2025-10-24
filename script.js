@@ -229,3 +229,11 @@ document.head.appendChild(style);
   render(index);
 })();
 
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.pricing-cta[href^="#"]');
+  if (!btn) return;
+  e.preventDefault();
+  const id = btn.getAttribute('href');
+  const target = document.querySelector(id);
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
